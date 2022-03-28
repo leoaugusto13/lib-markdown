@@ -1,11 +1,14 @@
 import chalk from 'chalk';
+import * as fs from 'fs';
 
-console.log(chalk.blue('Vamos começar!'));
 
-const paragrafo = 'Texto retornado por uma função';
+function pegaArquivo(caminhoDoArquivo) {
 
-function texto(string){
-    return string;
+    const enconding = 'utf8';
+    fs.readFile(caminhoDoArquivo, enconding, (_, texto) => {
+        console.log(chalk.green(texto));
+    })  
 }
 
-console.log(texto(paragrafo));
+pegaArquivo('./arquivos/texto1.md');
+
