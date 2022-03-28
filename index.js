@@ -26,16 +26,17 @@ function pegaArquivo(caminhoDoArquivo){
     .catch((erro) => trataErro(erro))
 } */
 
-async function pegaArquivo(caminhoDoArquivo){
-  try{
-    const enconding = 'utf8';
-    const texto = await fs.promises
-    .readFile(caminhoDoArquivo, enconding)
-    console.log(chalk.green(texto))
-  } catch(erro){
-      trataErro(erro)
-  }
-}
+async function pegaArquivo(caminhoDoArquivo) {
+    const encoding = 'utf-8';
+    try {
+      const texto = await fs.promises.readFile(caminhoDoArquivo, encoding)
+      console.log(chalk.green(texto))
+    } catch(erro) {
+      trataErro(erro);
+    } finally {
+      console.log(chalk.yellow('Operação concluída'));
+    }
+   }
 
 pegaArquivo('./arquivos/texto1.md');
 
