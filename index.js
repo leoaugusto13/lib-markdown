@@ -5,7 +5,7 @@ function trataErro(erro) {
     throw new Error(chalk.red(erro.code, 'Não existe arquivo a ser lido'));
 }
 
-
+/*
 function pegaArquivo(caminhoDoArquivo) {
 
     const enconding = 'utf8';
@@ -15,6 +15,14 @@ function pegaArquivo(caminhoDoArquivo) {
         }
         console.log(chalk.green(texto));
     })
+}*/
+
+function pegaArquivo(caminhoDoArquivo){
+    const enconding = 'utf8';
+    fs.promises
+    .readFile(caminhoDoArquivo, enconding)
+    .then((texto) => console.log(chalk.green(texto)))
+    .catch((erro) => trataErro(erro))
 }
 
 pegaArquivo('./arquivos/texto1.md');
