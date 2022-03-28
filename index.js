@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import * as fs from 'fs';
 
 function trataErro(erro) {
-    throw new Error(chalk.red(erro));
+    throw new Error(chalk.red(erro.code, 'Não existe arquivo a ser lido'));
 }
 
 
