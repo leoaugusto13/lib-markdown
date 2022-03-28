@@ -17,12 +17,24 @@ function pegaArquivo(caminhoDoArquivo) {
     })
 }*/
 
+/*
 function pegaArquivo(caminhoDoArquivo){
     const enconding = 'utf8';
     fs.promises
     .readFile(caminhoDoArquivo, enconding)
     .then((texto) => console.log(chalk.green(texto)))
     .catch((erro) => trataErro(erro))
+} */
+
+async function pegaArquivo(caminhoDoArquivo){
+  try{
+    const enconding = 'utf8';
+    const texto = await fs.promises
+    .readFile(caminhoDoArquivo, enconding)
+    console.log(chalk.green(texto))
+  } catch(erro){
+      trataErro(erro)
+  }
 }
 
 pegaArquivo('./arquivos/texto1.md');
